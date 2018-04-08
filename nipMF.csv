@@ -1,4 +1,4 @@
-,comment
-0,Podmiot o podanym identyfikatorze podatkowym NIP jest zarejestrowany jako podatnik VAT czynny
-1,"nie sprawdzono, prawdopodobnie bledny NIP"
-2,Podmiot o podanym identyfikatorze podatkowym NIP nie jest zarejestrowany jako podatnik VAT
+,nip,comment
+0,7990001080,"nie sprawdzono, prawdopodobnie bledny NIP"
+1,7740001454,Podmiot o podanym identyfikatorze podatkowym NIP jest zarejestrowany jako podatnik VAT czynny
+2,5851326431,Podmiot o podanym identyfikatorze podatkowym NIP nie jest zarejestrowany jako podatnik VAT
