@@ -11,6 +11,8 @@ class DataProvider(metaclass=ABCMeta):
     def factory(cls, type = None, *args, **kwargs):
         if type == 'csv':
             return CSVDataProvider()
+        elif type == 'one':
+            return OneNIPDataProvider()
         elif type == 'xls':
             pass
         return DummyDataProvider()
@@ -27,6 +29,12 @@ class CSVDataProvider(DataProvider):
         csv = pd.read_csv('{}.csv'.format(file_nip_data_path))
         csv1 = csv["NIPS"].tolist()
         return list(csv1)
+
+
+class OneNIPDataProvider(DataProvider):
+    def get_nip_list(self):
+        return ['7790001083']
+
 
 class XLSDataProvider(DataProvider):
     #TODO czytanie z excela
