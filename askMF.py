@@ -10,7 +10,8 @@ from data_provider import DataProvider
 
 
 
-browser = Browser('chrome', headless=True)
+#browser = Browser('chrome', headless=True)
+browser = Browser('chrome')
 
 
 def click_by_id(button_id):
