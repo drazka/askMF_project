@@ -13,7 +13,7 @@ def nip_tkinter():
             print(value)
             list_of_nips = []
             list_of_nips.append(value)
-            response_from_MF.set(check_nip(list_of_nips))
+            response_from_MF.check_nip((list_of_nips))
             print(list_of_nips)
         except ValueError:
             pass
@@ -46,3 +46,4 @@ def nip_tkinter():
 
     root.mainloop()
 
+nip_tkinter()

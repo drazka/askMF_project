@@ -3,9 +3,13 @@ import pandas as pd
 import time
 import shutil
 
+
+
+
 class NIPExtractor():
     def __init__(self):
         self._browser = Browser('chrome')
+        # self._browser = Browser('chrome', headless=True)
         self.scraped_data = []
         url = 'https://ppuslugi.mf.gov.pl/'
         self._browser.driver.set_window_size(940, 580)
@@ -25,8 +29,11 @@ class NIPExtractor():
         search_bar.fill(a)
 
     def _click_by_id(self, button_id):
+        while self._browser.is_element_not_present_by_id(button_id):
+            time.sleep(0.5)
         button = self._browser.find_by_id(button_id)[0]
         button.click()
+
 
     def _scrape(self):  # szuka informacji i zbiera do zmiennej
         search_results_xpath = '//*[@id="caption2_b-3"]'
@@ -70,6 +77,7 @@ class NIPExtractor():
         self._screenshot_saver(nip)
         self.scraped_data.append((nip, comment))  # in tuples
         self._esc(tab)
+        return self.scraped_data
 
 
     def _save_to_csv(self, data_to_csv):
@@ -77,24 +85,24 @@ class NIPExtractor():
         df.to_csv("nipMF.csv")
 
     def check_nip(self, nip):
-        self._check(nip)
+        result = self._check(nip)
         self._save_to_csv(self.scraped_data)
         self._quit()
+        return result
 
 
     def check_list_of_nips(self, nips):
         for nip in nips:
             nip = str(nip)
-            self._check(nip)
-        self._save_to_csv(self.scraped_data)
+            result = self._check(nip)
+        self._save_to_csv(result)
         self._quit()
+        return result
 
 
 
 
 
-nip_extractor = NIPExtractor()
-nip = '7790001083'
-nips = [nip, '7790001080', '5851326431' ]
-#nip_extractor.check_nip(nip) #return slownik: nr nip, komunikat, printscreen
-nip_extractor.check_list_of_nips(nips) #retern: tupla(nr nip, komunikat, printcreen)
+
+
+

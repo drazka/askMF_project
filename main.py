@@ -1,4 +1,7 @@
-from tkinterNIP.tkinter_first_nip import nip_tkinter
+
+from askMF_project.nip_tkinter import nip_tkinter_checker
 
 
-nip_tkinter()
+nip_tkinter_checker()
+
+

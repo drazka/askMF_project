@@ -94,12 +94,12 @@ def save_to_csv(data_to_csv):
 if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()
-    source = DataProvider.factory('csv').get_nip_list() #w faktur wybierasz typ dokumentu
+    source = DataProvider.factory('one').get_nip_list() #w faktur wybierasz typ dokumentu
     messagebox.showwarning('Alert', 'Po skonczeniu sprawdzania, poinformujemy Cie o tym')
     check_nip(source)
     messagebox.showwarning('Alert', 'Informacje sa juz dostepne')
 
-# pythonrq ew.celery do zarzadzania zadaniami
+# pytho rq(redis q) ew.celery do zarzadzania zadaniami
 
 
 
